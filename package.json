@@ -1,0 +1,24 @@
+{
+  "name": "koa-html-minifier",
+  "description": "minify HTML responses like some crazy guy",
+  "version": "1.0.0",
+  "author": {
+    "name": "Jonathan Ong",
+    "email": "me@jongleberry.com",
+    "url": "http://jongleberry.com",
+    "twitter": "https://twitter.com/jongleberry"
+  },
+  "license": "MIT",
+  "repository": "koajs/html-minifier",
+  "dependencies": {
+    "html-minifier": "*"
+  },
+  "devDependencies": {
+    "koa": "0",
+    "mocha": "1",
+    "supertest": "0"
+  },
+  "scripts": {
+    "test": "mocha --harmony-generators --reporter spec --bail"
+  }
+}
