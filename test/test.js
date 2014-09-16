@@ -3,7 +3,7 @@ var koa = require('koa')
 var request = require('supertest')
 var PassThrough = require('stream').PassThrough
 
-var minifier = require('./')
+var minifier = require('..')
 
 var options = {
   collapseWhitespace: true

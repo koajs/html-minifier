@@ -14,11 +14,15 @@
     "html-minifier": "*"
   },
   "devDependencies": {
+    "istanbul-harmony": "0",
     "koa": "0",
     "mocha": "1",
     "supertest": "0"
   },
   "scripts": {
-    "test": "mocha --harmony-generators --reporter spec --bail"
-  }
+    "test": "mocha --harmony-generators --reporter spec",
+    "test-cov": "node --harmony-generators ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha",
+    "test-travis": "node --harmony-generators ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly --"
+  },
+  "files": ["index.js"]
 }
