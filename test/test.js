@@ -1,5 +1,5 @@
 
-var koa = require('koa')
+var Koa = require('koa')
 var request = require('supertest')
 var PassThrough = require('stream').PassThrough
 
@@ -16,10 +16,10 @@ describe('Koa HTML Minifier', function () {
 
     describe('and the body is empty', function () {
       it('should not crash', function (done) {
-        var app = koa()
+        var app = new Koa()
         app.use(minifier(options))
-        app.use(function* () {
-          this.body = null
+        app.use(ctx => {
+          ctx.body = null
         })
 
         request(app.listen())
@@ -30,10 +30,10 @@ describe('Koa HTML Minifier', function () {
 
     describe('and the body is a string', function () {
       it('should minify', function (done) {
-        var app = koa()
+        var app = new Koa()
         app.use(minifier(options))
-        app.use(function* () {
-          this.body = input
+        app.use(ctx => {
+          ctx.body = input
         })
 
         request(app.listen())
@@ -46,11 +46,11 @@ describe('Koa HTML Minifier', function () {
 
     describe('and the body is a buffer', function () {
       it('should minify', function (done) {
-        var app = koa()
+        var app = new Koa()
         app.use(minifier(options))
-        app.use(function* () {
-          this.response.type = 'html'
-          this.body = new Buffer(input, 'utf8')
+        app.use(ctx => {
+          ctx.type = 'html'
+          ctx.body = new Buffer(input, 'utf8')
         })
 
         request(app.listen())
@@ -62,11 +62,11 @@ describe('Koa HTML Minifier', function () {
 
     describe('and the body is an object', function () {
       it('should not crash', function (done) {
-        var app = koa()
+        var app = new Koa()
         app.use(minifier(options))
-        app.use(function* () {
-          this.body = {}
-          this.response.type = 'html'
+        app.use(ctx => {
+          ctx.body = {}
+          ctx.type = 'html'
         })
 
         request(app.listen())
@@ -77,11 +77,11 @@ describe('Koa HTML Minifier', function () {
 
     describe('and the body is a stream', function () {
       it('should not minify', function (done) {
-        var app = koa()
+        var app = new Koa()
         app.use(minifier(options))
-        app.use(function* () {
-          this.response.type = 'html'
-          var stream = this.body = new PassThrough()
+        app.use(ctx => {
+          ctx.type = 'html'
+          var stream = ctx.body = new PassThrough()
           stream.end(input)
         })
 
@@ -96,10 +96,10 @@ describe('Koa HTML Minifier', function () {
   describe('when the response is not HTML', function () {
     it('should do nothing', function (done) {
       var text = 'lol     < > <3'
-      var app = koa()
+      var app = new Koa()
       app.use(minifier(options))
-      app.use(function* () {
-        this.body = text
+      app.use(ctx => {
+        ctx.body = text
       })
 
       request(app.listen())
