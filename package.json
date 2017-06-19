@@ -11,18 +11,18 @@
   "license": "MIT",
   "repository": "koajs/html-minifier",
   "dependencies": {
-    "html-minifier": "*"
+    "html-minifier": "3.5.2"
   },
   "devDependencies": {
     "istanbul-harmony": "0",
-    "koa": "1.1.2",
-    "mocha": "2.3.4",
-    "supertest": "1.1.0"
+    "koa": "2.2.0",
+    "mocha": "3.4.2",
+    "supertest": "3.0.0"
   },
   "scripts": {
-    "test": "mocha --harmony-generators --reporter spec",
-    "test-cov": "node --harmony-generators ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha",
-    "test-travis": "node --harmony-generators ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly --"
+    "test": "mocha --reporter spec",
+    "test-cov": "node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha",
+    "test-travis": "node  ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly --"
   },
   "files": [
     "index.js"
