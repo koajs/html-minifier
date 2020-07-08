@@ -1,4 +1,4 @@
-const minify = require('html-minifier').minify;
+const minify = require('html-minifier-terser').minify;
 
 module.exports = (options = {}) => {
 	return async (ctx, next) => {
