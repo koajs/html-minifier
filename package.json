@@ -1,30 +1,85 @@
 {
   "name": "koa-html-minifier",
   "description": "minify HTML responses like some crazy guy",
-  "version": "1.0.1",
+  "version": "2.0.0",
+  "files": [
+    "index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/koajs/html-minifier"
+  },
+  "keywords": [
+    "koa",
+    "html",
+    "css",
+    "htmlmin",
+    "min",
+    "compress",
+    "minification",
+    "minifier",
+    "minify",
+    "uglifier",
+    "uglify",
+    "terser"
+  ],
+  "scripts": {
+    "lint": "xo",
+    "pretest": "npm run lint",
+    "test": "mocha --exit",
+    "test-ci": "nyc npm run test"
+  },
   "author": {
     "name": "Jonathan Ong",
     "email": "me@jongleberry.com",
-    "url": "http://jongleberry.com",
-    "twitter": "https://twitter.com/jongleberry"
+    "url": "http://jongleberry.com"
   },
+  "contributors": [
+    {
+      "name": "Imed Jaberi",
+      "email": "imed_jebari@hotmail.fr",
+      "url": "https://www.3imed-jaberi.com"
+    },
+    {
+      "name": "João Carmona",
+      "email": "jpc@mm.st"
+    }
+  ],
   "license": "MIT",
-  "repository": "koajs/html-minifier",
   "dependencies": {
-    "html-minifier": "3.5.2"
+    "html-minifier-terser": "^5.1.1"
   },
   "devDependencies": {
-    "istanbul-harmony": "0",
-    "koa": "2.2.0",
-    "mocha": "3.4.2",
-    "supertest": "3.0.0"
+    "eslint-config-xo-lass": "^1.0.3",
+    "koa": "^2.13.0",
+    "mocha": "^8.0.1",
+    "nyc": "^15.1.0",
+    "supertest": "^4.0.2",
+    "xo": "^0.32.1"
   },
-  "scripts": {
-    "test": "mocha --reporter spec",
-    "test-cov": "node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha",
-    "test-travis": "node  ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly --"
+  "prettier": {
+    "singleQuote": true,
+    "bracketSpacing": true,
+    "trailingComma": "none"
   },
-  "files": [
-    "index.js"
-  ]
+  "xo": {
+    "prettier": true,
+    "space": true,
+    "extends": [
+      "xo-lass"
+    ],
+    "ignores": [
+      "test"
+    ],
+    "rules": {
+      "func-names": "off"
+    }
+  },
+  "engines": {
+    "node": ">= 10"
+  },
+  "homepage": "https://github.com/koajs/html-minifier",
+  "bugs": {
+    "url": "https://github.com/koajs/html-minifier/issues"
+  }
 }

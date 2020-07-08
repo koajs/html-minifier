@@ -1,3 +1,19 @@
-.DS_Store*
+#       OS        #
+###################
+.DS_Store
+.idea
+Thumbs.db
+tmp
+temp
+
+
+#     Node.js     #
+###################
 node_modules
+package-lock.json
+
+
+#       NYC       #
+###################
 coverage
+.nyc_output
