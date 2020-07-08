@@ -15,10 +15,10 @@
   },
   "devDependencies": {
     "eslint-config-xo-lass": "^1.0.3",
-    "istanbul-harmony": "0",
-    "koa": "2.2.0",
-    "mocha": "3.4.2",
-    "supertest": "3.0.0",
+    "koa": "^2.13.0",
+    "mocha": "^8.0.1",
+    "nyc": "^15.1.0",
+    "supertest": "^4.0.2",
     "xo": "^0.32.1"
   },
   "prettier": {
