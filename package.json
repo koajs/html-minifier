@@ -14,12 +14,27 @@
     "html-minifier-terser": "^5.1.1"
   },
   "devDependencies": {
+    "eslint-config-xo-lass": "^1.0.3",
     "istanbul-harmony": "0",
     "koa": "2.2.0",
     "mocha": "3.4.2",
-    "supertest": "3.0.0"
+    "supertest": "3.0.0",
+    "xo": "^0.32.1"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "bracketSpacing": true,
+    "trailingComma": "none"
+  },
+  "xo": {
+    "prettier": true,
+    "space": true,
+    "extends": [
+      "xo-lass"
+    ]
   },
   "scripts": {
+    "lint": "xo",
     "test": "mocha --reporter spec",
     "test-cov": "node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha",
     "test-travis": "node  ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly --"
