@@ -1,8 +1,9 @@
 const minify = require('html-minifier-terser').minify;
 
-module.exports = (options = {}) => {
+module.exports = (options) => {
 	return async (ctx, next) => {
 		await next();
+		if (!options) return;
 		if (!ctx.response.is('html')) return;
 		let { body } = ctx.response;
 		if (!body) return;

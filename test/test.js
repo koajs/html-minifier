@@ -1,6 +1,6 @@
 const Koa = require('koa');
 const request = require('supertest');
-const PassThrough = require('stream').PassThrough;
+const { PassThrough } = require('stream');
 
 const minifier = require('..');
 
