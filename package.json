@@ -1,7 +1,7 @@
 {
   "name": "koa-html-minifier",
   "description": "minify HTML responses like some crazy guy",
-  "version": "2.0.0",
+  "version": "1.0.1",
   "files": [
     "index.js"
   ],

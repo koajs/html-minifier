@@ -46,10 +46,13 @@ See: https://github.com/DanielRuf/html-minifier-terser#minification-comparison
 
 [npm-img]: https://img.shields.io/npm/v/@koa/html-minifier.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/koa-html-minifier
+
 [travis-img]: https://img.shields.io/travis/koajs/html-minifier.svg?style=flat-square
 [travis-url]: https://travis-ci.org/koajs/html-minifier
+
 [coveralls-img]: https://img.shields.io/coveralls/koajs/html-minifier.svg?style=flat-square
 [coveralls-url]: https://coveralls.io/r/koajs/html-minifier?branch=master
+
 [license-img]: https://img.shields.io/badge/license-MIT-green.svg?style=flat-square
 [license-url]: LICENSE
 
