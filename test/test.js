@@ -42,7 +42,7 @@ describe('Koa HTML Minifier', function() {
 				app.use(minifier(options));
 				app.use(ctx => {
 					ctx.response.type = 'html';
-					ctx.body = new Buffer(input, 'utf8');
+					ctx.body = Buffer.from(input, 'utf8');
 				});
 
 				request(app.listen()).get('/').expect(200).expect(output, done);
