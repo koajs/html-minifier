@@ -1,15 +1,20 @@
-const minify = require('html-minifier-terser').minify;
+const { minify } = require('html-minifier-terser');
 
-module.exports = (options) => {
+module.exports = function koaHtmlMinifier (options) {
 	return async (ctx, next) => {
 		await next();
-		if (!options) return;
-		if (!ctx.response.is('html')) return;
-		let { body } = ctx.response;
-		if (!body) return;
-		if (typeof body.pipe === 'function') return;
-		if (Buffer.isBuffer(body)) body = body.toString('utf8');
-		else if (typeof body === 'object') return;
-		ctx.response.body = await minify(body, options);
+		if (
+			!options ||
+			!ctx.response.is('html') ||
+			!ctx.response.body ||
+			typeof ctx.response.body.pipe === 'function'
+		) return;
+
+		if(Buffer.isBuffer(ctx.response.body)) 
+			ctx.response.body = ctx.response.body.toString('utf8');
+
+		if (typeof ctx.response.body === 'object') return;
+
+		ctx.response.body = await minify(ctx.response.body, options);
 	};
 };
