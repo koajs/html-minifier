@@ -3,19 +3,27 @@ const { minify } = require('html-minifier-terser');
 module.exports = function koaHtmlMinifier(options) {
   return async (ctx, next) => {
     await next();
+    let { body: rowBody } = ctx.response;
     if (
       !options ||
       !ctx.response.is('html') ||
-      !ctx.response.body ||
-      typeof ctx.response.body.pipe === 'function'
+      !rowBody ||
+      typeof rowBody.pipe === 'function'
     )
       return;
 
-    if (Buffer.isBuffer(ctx.response.body))
-      ctx.response.body = ctx.response.body.toString('utf8');
+    if (Buffer.isBuffer(rowBody)) {
+      ctx.response.body = rowBody.toString('utf8');
+    }
 
-    if (typeof ctx.response.body === 'object') return;
+    if (typeof rowBody === 'object') return;
 
-    ctx.response.body = await minify(ctx.response.body, options);
+    try {
+      rowBody = await minify(rowBody, options);
+    } catch (err) {
+      console.error(err);
+    }
+
+    ctx.response.body = rowBody;
   };
 };
