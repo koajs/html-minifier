@@ -89,4 +89,18 @@ describe('Koa HTML Minifier', function() {
 			request(app.listen()).get('/').expect(200).expect(text, done);
 		});
 	});
+
+	describe('and the body is an HTML, but prase error', function() {
+		it('should not crash', function(done) {
+			const app = new Koa();
+			const errHtml = '<p>111<222</p>'
+			app.use(minifier(options));
+			app.use(ctx => {
+				ctx.response.type = 'html';
+				ctx.body = errHtml;
+			});
+
+			request(app.listen()).get('/').expect(200).expect(errHtml, done);
+		});
+	});
 });
