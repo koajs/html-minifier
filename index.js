@@ -13,7 +13,7 @@ module.exports = function koaHtmlMinifier(options) {
       return;
 
     if (Buffer.isBuffer(rowBody)) {
-      ctx.response.body = rowBody.toString('utf8');
+      rowBody = rowBody.toString('utf8');
     }
 
     if (typeof rowBody === 'object') return;
