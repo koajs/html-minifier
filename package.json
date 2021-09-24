@@ -55,7 +55,7 @@
     "mocha": "^8.0.1",
     "nyc": "^15.1.0",
     "supertest": "^4.0.2",
-    "xo": "^0.32.1"
+    "xo": "^0.44.0"
   },
   "prettier": {
     "singleQuote": true,
