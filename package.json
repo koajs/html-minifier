@@ -50,7 +50,7 @@
     "html-minifier-terser": "^6.0.2"
   },
   "devDependencies": {
-    "eslint-config-xo-lass": "^1.0.3",
+    "eslint-config-xo-lass": "^2.0.1",
     "koa": "^2.13.3",
     "mocha": "^10.0.0",
     "nyc": "^15.1.0",
