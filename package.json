@@ -47,7 +47,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "html-minifier-terser": "^6.0.2"
+    "html-minifier-terser": "^7.0.0"
   },
   "devDependencies": {
     "eslint-config-xo-lass": "^2.0.1",
